@@ -1,0 +1,75 @@
+@bot.command()
+async def delete_channel(ctx, channel:discord.TextChannel=None):
+  await channel.delete()
+  await ctx.send(f'We have deleted {channel}.')
+
+@bot.command() 
+async def delete_role(ctx, role: discord.Role=None):
+ await role.delete()
+ await ctx.send(f'We have deleted {role}.') 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if len(ctx.guild.emojis) > 1:
+    emoji_string = ' '.join([f"<{'a' if _.animated else ''}:{_.name}:{_.id}>" for  num, _ in enumerate(ctx.guild.emojis, start=1)]) 
+
+
+
+    if len(ctx.guild.roles) > 1:
+      role_string = ' '.join([r.mention for r in ctx.guild.roles][:11]) 
+      total = ctx.guild.roles   
+  list3.add_field(name=":police_car: Roles [{}]".format(len(total)), value=f"{role_string} +{len(ctx.guild.roles)-11} more", inline=False)
+
+
+
+  
+
+@client.command()
+@commands.is_owner()
+async def audit(ctx):
+    guild = ctx.guild
+    channel0 = discord.utils.get(guild.text_channels, name="brem-reports")
+
+    if not channel0:
+      await ctx.send("creating channel..")
+      overwrites = {
+      guild.default_role: discord.PermissionOverwrite(read_messages=True, send_messages=False, add_reactions=False, read_message_history=True),
+      guild.me: discord.PermissionOverwrite(send_messages=True, view_channel=True)
+      }
+      await guild.create_text_channel(name="brem-reports", overwrites=overwrites)
+      await ctx.send("channel created!")
+    else:
+      await ctx.send(f"found an existing channel! {channel0.mention}")
+
+
+
+
+
+
+#@client.command(pass_context=True)
+#@commands.is_owner()
+#async def broadcast(ctx, *, msg=None):
+ # if msg == None:
+  #  await ctx.reply("oh..ohhh we need a message bro :)")
+   # return  
+  #else:  
+   # for server in client.guilds:
+    #    for channel in server.text_channels:
+     #       try:
+      #          await channel.send(msg)
+       #         await channel.send("**This message had been sent by wari#3533, brem's owner and coder**")
+        #        await ctx.send(f"Sent your bot report to the guilds!")
+         #   except Exception:
+          #      continue
+           # else:
+            #    break
