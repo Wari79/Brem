@@ -32,6 +32,8 @@ class welcome(commands.Cog):
             embed.set_footer(text=f"{owner} <3")
             await channel.send(embed=embed)
 
+            invite = await ctx.channel.create_invite(max_age=0, max_uses=0)
+
             await owner.send(
                 f"Brem joined a new server called {guild.name}, we hittin that, right wari :fire:?"
             )

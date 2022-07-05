@@ -15,6 +15,7 @@ googletrans = "^3.1.0a0"
 gTTS = "^2.2.4"
 mutagen = "^1.45.1"
 black = "^22.3.0"
+"discord.ext" = "^0.8"
 
 [tool.poetry.dev-dependencies]
 
